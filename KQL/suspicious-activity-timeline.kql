@@ -1,0 +1,5 @@
+SecurityEvent
+| where EventID in (4625, 4624, 4688)
+| summarize EventCount=count()
+    by bin(TimeGenerated, 30m)
+| order by TimeGenerated asc
