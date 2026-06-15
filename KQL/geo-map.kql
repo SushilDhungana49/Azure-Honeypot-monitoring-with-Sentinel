@@ -1,0 +1,8 @@
+let GeoIPDB_FULL = _GetWatchlist("geoip");
+SecurityEvent
+| where EventID == 4625
+| where IpAddress != "-"
+| evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network) 
+| summarize FailureCount=count() by IpAddress, latitude, longitude, cityname, countryname 
+| order by FailureCount desc
+| project FailureCount, AttackerIp=IpAddress, latitude, longitude, city=cityname, country=countryname, friendly_location=strcat(cityname, " (", countryname, ")")
