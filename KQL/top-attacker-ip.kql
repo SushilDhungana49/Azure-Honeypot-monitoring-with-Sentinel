@@ -1,0 +1,5 @@
+SecurityEvent
+| where EventID == 4625
+| where IpAddress != "-"
+| summarize FailedAttempts = count() by IpAddress
+| top 15 by FailedAttempts desc
