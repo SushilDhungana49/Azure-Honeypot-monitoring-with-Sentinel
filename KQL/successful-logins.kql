@@ -1,0 +1,9 @@
+SecurityEvent
+| where EventID == 4624
+| where TargetUserName !in ("SYSTEM", "ANONYMOUS LOGON")
+| project
+    TimeGenerated,
+    TargetUserName,
+    LogonType,
+    Computer
+| order by TimeGenerated desc
