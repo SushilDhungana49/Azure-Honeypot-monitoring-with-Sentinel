@@ -1,0 +1,6 @@
+SecurityEvent
+| where EventID == 4688
+| where isnotempty(NewProcessName)
+| summarize ExecutionCount = count()
+    by NewProcessName
+| top 15 by ExecutionCount desc
