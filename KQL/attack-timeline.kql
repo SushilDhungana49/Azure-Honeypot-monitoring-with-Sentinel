@@ -1,0 +1,6 @@
+SecurityEvent
+| where EventID == 4625
+| where isnotempty(IpAddress) and IpAddress != "-"
+| summarize FailedAttempts = count()
+    by bin(TimeGenerated, 1h)
+| order by TimeGenerated asc
