@@ -1,0 +1,5 @@
+SecurityEvent
+| where EventID == 4625
+| where TargetUserName != ""
+| summarize Attempts = count() by TargetUserName
+| top 20 by Attempts desc
