@@ -190,7 +190,7 @@ No suspicious command execution or attacker tooling was identified.
 # Investigation Report
 
 This is the link to full investigation report of the project.
-!(investigation_report.md)
+[investigation_report.md]
 
 ---
 
