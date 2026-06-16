@@ -1,0 +1,10 @@
+SecurityEvent
+| where EventID == 4625
+| where IpAddress != "-"
+| summarize FailedAttempts = count(), 
+    TargetAccounts = make_set(TargetUserName), 
+    FirstAttempt = min(TimeGenerated), 
+    LastAttempt = max(TimeGenerated)
+    by IpAddress
+| where FailedAttempts >= 5
+| extend Duration = LastAttempt - FirstAttempt
