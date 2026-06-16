@@ -58,7 +58,7 @@ This dashboard provides a geographic overview of brute-force activity observed a
 
 ### Sample Visualization
 
-![Dashboard Preview](Screenshots/Attacker Geolocation Map.png)
+![Dashboard Preview](Screenshots/attacker_geolocation_map.png)
 
 ### Example Query
 
