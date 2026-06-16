@@ -41,7 +41,7 @@ Microsoft Sentinel
     └── Detection Queries
 ```
 
-![Architecture Diagram](/Architecture/azure_architecture_diagram.png)
+![Architecture Diagram](Architecture/azure_architecture_diagram.png)
 ---
 
 ## Technologies Used
