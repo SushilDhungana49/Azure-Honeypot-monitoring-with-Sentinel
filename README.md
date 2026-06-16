@@ -116,6 +116,8 @@ This dashboard was used to investigate successful authentication events and dete
 
 ### Successful Logon Analysis
 
+![Successful Logins](Screenshots/successful_logins_1.png)
+
 Successful authentication events were investigated to determine whether any external attacker successfully accessed the system.
 
 Investigation determined that all successful logons were attributable to legitimate administrative activity performed during deployment, testing, and maintenance of the VM.
@@ -137,6 +139,8 @@ Observed logon types included:
 No successful RDP logons (Logon Type 10) originating from external attackers were observed.
 
 ### Process Creation Analysis
+
+![Process execution summary](Screenshots/procession_creation_summary.png)
 
 Process creation events were reviewed to identify potential post-authentication activity.
 
@@ -161,8 +165,8 @@ No suspicious command execution or attacker tooling was identified.
 | Observed Activity | ATT&CK Technique |
 |------------------|------------------|
 | Brute Force Attempts | T1110 |
-| Remote Service Targeting (RDP) | T1021 |
-| Authentication Monitoring | T1078 (Investigated) |
+| Attempts for Valid Accounts | T1078 |
+| Active Scanning for RDP/SMB ports | T1595 |
 
 ---
 
