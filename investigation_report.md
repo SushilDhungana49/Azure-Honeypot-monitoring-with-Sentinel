@@ -1,4 +1,4 @@
-# Incident Investigation Report — Azure Honeypot Monitoring with Sentinel
+# Incident Investigation Report: Azure Honeypot Monitoring with Sentinel
 
 ## 1. Executive Summary
 
@@ -13,7 +13,7 @@ indicators of compromise, MITRE ATT&CK mapping, and recommended remediation.
 | Report date | 16/06/2026 |
 | Monitoring period | 12/06/2026 – 14/06/2026 |
 | Asset under investigation | HP-Admin |
-| Severity | Low — high attack volume, zero confirmed external compromise |
+| Severity | Low: high attack volume, zero confirmed external compromise |
 | Analyst | Sushil Dhungana |
 
 ## 2. Scope and Environment
@@ -48,7 +48,7 @@ indicators of compromise, MITRE ATT&CK mapping, and recommended remediation.
 | Peak attack count | 6,292 |
 | Attack pattern | Continuous baseline scanning with two bursty surges |
 
-## 4. Successful Authentication Events — Verification Findings
+## 4. Successful Authentication Event Findings
 
 EventID 4624 was used to identify successful logons. Each successful logon was
 cross-referenced against its source IP, logon type, and timestamp to determine
@@ -76,7 +76,7 @@ attributed to one of the following:
 |---|---|---|
 | 0 | System (used internally by Windows, not a real user logon) | Not user-originated; irrelevant for attack analysis |
 | 2 | Interactive (local console logon) | Likely admin/analyst or local activity; not external |
-| 3 | Network (e.g. SMB, file shares, remote access over network) | Reviewed — no evidence of external successful logons |
+| 3 | Network (e.g. SMB, file shares, remote access over network) | Reviewed: no evidence of external successful logons |
 | 5 | Service logon (Windows services starting under service accounts) | Routine system activity; not attack-related |
 | 7 | Unlock (workstation unlock after logon session) | Local session activity; indicates active internal user session |
 
@@ -96,7 +96,7 @@ attack chain.
 
 | Tactic | Technique ID | Technique Name | Evidence | Outcome |
 |---|---|---|---|---|
-| Credential Access | T1110 | Brute Force | High volume of EventID 4625 from external source IPs | Attempted only — no successful breach |
+| Credential Access | T1110 | Brute Force | High volume of EventID 4625 from external source IPs | Attempted only (no successful breach) |
 | Initial Access | T1078 | Valid Accounts | N/A | Not achieved by any external actor |
 | Reconnaissance | T1595 | Active Scanning | Sustained probing of exposed RDP/SMB ports across the monitoring period | Confirmed |
 
@@ -129,7 +129,7 @@ detect brute-force activity:
 The honeypot was deliberately configured with open ports (including RDP and SMB) to attract
 external scanning and brute-force traffic, which it did at high volume. Despite
 this, the account credentials in place (enforced by Azure's password complexity
-policy — minimum 12 characters, no simple usernames) were not compromised during
+policy, i.e. minimum 12 characters, no simple usernames) were not compromised during
 the monitoring period. This indicates that **strong credential policy and the
 absence of account lockout exploitation were sufficient to prevent brute-force
 success** even under sustained, high-volume attack traffic.
@@ -139,7 +139,7 @@ success** even under sustained, high-volume attack traffic.
 Even though no compromise occurred, the following controls would further reduce
 risk in a comparable production deployment:
 
-1. **Restrict RDP/SMB exposure** — use a VPN, Azure Bastion, or just-in-time (JIT)
+1. **Restrict RDP/SMB exposure** by using a VPN, Azure Bastion, or just-in-time (JIT)
    VM access instead of direct internet exposure, to reduce the attack surface
    rather than relying solely on credential strength.
 2. **Enforce account lockout policy** after a small number of failed attempts to
@@ -165,7 +165,7 @@ that demonstrates the effectiveness of Azure's enforced password complexity poli
 against brute-force attacks, while also validating the detection and investigation
 workflow built for this project: collecting logs, building detection rules,
 correlating identity and process data, and verifying findings before drawing
-conclusions — the same rigor required in real-world SOC incident response.
+conclusions as required in real-world SOC incident response.
 
 ---
 
