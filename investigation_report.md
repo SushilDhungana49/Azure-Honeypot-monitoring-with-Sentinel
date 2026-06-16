@@ -66,8 +66,8 @@ attributed to one of the following:
 | Field | Value |
 |---|---|
 | Total raw successful logons (4624) | 307 |
-| Successful logons attributable to analyst | 14 |
-| Successful logons attributable to Windows system processes | 293 |
+| Successful logons attributable to analyst | 16 |
+| Successful logons attributable to Windows system processes | 291 |
 | Successful logons attributable to external attackers | 0 |
 
 ### 4.1 Logon Type Reference
@@ -107,8 +107,7 @@ confirmed breach artifacts.
 
 | Type | Value |
 |---|---|
-| Top source IPs | 194.180.48.162, 80.94.95.83
-, 
+| Top source IPs | 194.180.48.162, 80.94.95.83, 
 49.0.33.162 |
 | Targeted account name(s) | Administrator, Admin, User |
 | Targeted hostname | HP-Admin |
