@@ -21,7 +21,6 @@ The objective was to collect, analyze, and investigate real-world authentication
 ## Architecture
 
 <img src="Architecture/azure_honeypot_architecture.png" alt="Architecture Diagram" width="750">
----
 
 ## Technologies Used
 
