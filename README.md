@@ -53,26 +53,19 @@ This dashboard provides a geographic overview of brute-force activity observed a
 
 - Global attack map
 - Geolocation enrichment
+- Brute force detection
 - Attack concentration visualization
 - Attack source analysis
 
-### Sample Visualization
+### Geolocation Map of Attackers
 
-![Dashboard Preview](Screenshots/attacker_geolocation_map.png)
+![Geolocation Map](Screenshots/attacker_geolocation_map.png)
 
-### Example Query
 
-```kql
-let GeoIPDB_FULL = _GetWatchlist("geoip");
-SecurityEvent
-| where EventID == 4625
-| where IpAddress != "-"
-| evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network)
-| summarize FailureCount=count()
-    by IpAddress, latitude, longitude, cityname, countryname
-```
+### Attack Demographics
 
----
+![Attack Demographics](Screenshots/attack_demographics.png)
+
 
 # Workbook 2: Authentication Analysis
 
@@ -89,15 +82,15 @@ This dashboard focuses on authentication attack patterns.
 
 #### Top Attacker IPs
 
-> Insert screenshot here.
+![Dashboard Preview](Screenshots/top_attacker_IPs.png)
 
 #### Attack Timeline
 
-> Insert screenshot here.
+![Dashboard Preview](Screenshots/suspicious_activity_timeline.png)
 
 #### Most Targeted Usernames
 
-> Insert screenshot here.
+![Dashboard Preview](Screenshots/most_targeted_usernames.png)
 
 ### Findings
 
@@ -105,8 +98,7 @@ Commonly targeted usernames included:
 
 - administrator
 - admin
-- guest
-- test
+- user
 
 These patterns are consistent with automated credential guessing attacks.
 
@@ -165,45 +157,6 @@ No suspicious command execution or attacker tooling was identified.
 
 ---
 
-# Detection Queries
-
-## Brute Force Detection
-
-Detects excessive failed authentication attempts from a single source.
-
-```kql
-SecurityEvent
-| where EventID == 4625
-| summarize FailureCount=count()
-    by IpAddress, bin(TimeGenerated, 10m)
-| where FailureCount >= 20
-```
-
----
-
-## Top Attacking IP Addresses
-
-```kql
-SecurityEvent
-| where EventID == 4625
-| summarize FailedAttempts=count()
-    by IpAddress
-| top 15 by FailedAttempts desc
-```
-
----
-
-## Authentication Trend Analysis
-
-```kql
-SecurityEvent
-| where EventID == 4625
-| summarize FailedAttempts=count()
-    by bin(TimeGenerated, 1h)
-```
-
----
-
 # MITRE ATT&CK Mapping
 
 | Observed Activity | ATT&CK Technique |
@@ -234,7 +187,14 @@ SecurityEvent
 
 ---
 
-# Analyst Conclusion
+# Investigation Report
+
+This is the link to full investigation report of the project.
+!(investigation_report.md)
+
+---
+
+# Conclusion
 
 This project demonstrated the deployment and monitoring of an internet-facing Azure honeypot using Microsoft Sentinel.
 
