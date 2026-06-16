@@ -159,7 +159,7 @@ risk in a comparable production deployment:
 This investigation captured a sustained, high-volume brute-force campaign against
 an internet-facing honeypot, with peaks exceeding 6,000 failed attempts per hour.
 Despite this volume, **no external actor successfully authenticated to the system**
-— all successful logons and process executions were verified as belonging to the
+as all successful logons and process executions were verified as belonging to the
 analyst's own access or routine Windows system behavior. This is a strong outcome
 that demonstrates the effectiveness of Azure's enforced password complexity policy
 against brute-force attacks, while also validating the detection and investigation
