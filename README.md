@@ -20,28 +20,7 @@ The objective was to collect, analyze, and investigate real-world authentication
 
 ## Architecture
 
-```text
-Internet
-    │
-    ▼
-Azure Windows VM (Honeypot)
-    │
-    ▼
-Windows Security Events
-    │
-    ▼
-Log Analytics Workspace
-    │
-    ▼
-Microsoft Sentinel
-    │
-    ├── Attack Map
-    ├── Authentication Analysis
-    ├── Investigation Dashboard
-    └── Detection Queries
-```
-
-<img src="Architecture/azure_honeypot_architecture.png" alt="Architecture Diagram" width="800" align="center">
+<img src="Architecture/azure_honeypot_architecture.png" alt="Architecture Diagram" width="750">
 ---
 
 ## Technologies Used
@@ -79,7 +58,7 @@ This dashboard provides a geographic overview of brute-force activity observed a
 
 ### Sample Visualization
 
-> Insert attack map screenshot here.
+![Dashboard Preview](Screenshots/Attacker Geolocation Map.png)
 
 ### Example Query
 
