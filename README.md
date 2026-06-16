@@ -41,7 +41,7 @@ Microsoft Sentinel
     └── Detection Queries
 ```
 
-![Architecture Diagram](Architecture/azure_honeypot_architecture.png)
+<img src="azure_honeypot_architecture.png" alt="Architecture Diagram" width="500">
 ---
 
 ## Technologies Used
