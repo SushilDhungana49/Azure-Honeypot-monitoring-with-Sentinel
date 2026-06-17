@@ -140,7 +140,7 @@ No successful RDP logons (Logon Type 10) originating from external attackers wer
 
 ### Process Creation Analysis
 
-![Process execution summary](Screenshots/process_creation_summary.png)
+![Process execution summary](Screenshots/process_execution_summary.png)
 
 Process creation events were reviewed to identify potential post-authentication activity.
 
