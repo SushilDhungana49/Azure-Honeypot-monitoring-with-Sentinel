@@ -107,8 +107,7 @@ confirmed breach artifacts.
 
 | Type | Value |
 |---|---|
-| Top source IPs | 194.180.48.162, 80.94.95.83, 
-49.0.33.162 |
+| Top source IPs | 194.180.48.162, 80.94.95.83, 49.0.33.162 |
 | Targeted account name(s) | Administrator, Admin, User |
 | Targeted hostname | HP-Admin |
 | Malicious processes identified | None |
