@@ -117,6 +117,7 @@ This dashboard was used to investigate successful authentication events and dete
 ### Successful Logon Analysis
 
 ![Successful Logins](Screenshots/successful_logins_1.png)
+![Successful Logins](Screenshots/successful_logins_2.png)
 
 Successful authentication events were investigated to determine whether any external attacker successfully accessed the system.
 
